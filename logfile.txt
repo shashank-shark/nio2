@@ -1,0 +1,29 @@
+-----------------------------------------------------------
+run: BufferedReader.readLine() into LinkedList
+lines: 2232
+estimatedTime: 0.0047471
+-----------------------------------------------------------
+run: BufferedReader.readLine() into ArrayList
+lines: 2232
+estimatedTime: 0.0053198
+-----------------------------------------------------------
+run: Files.readAllLines()
+lines: 2232
+estimatedTime: 0.0209893
+-----------------------------------------------------------
+run: Scanner.nextLine() into ArrayList
+lines: 2232
+estimatedTime: 0.0465058
+-----------------------------------------------------------
+run: Scanner.nextLine() into LinkedList
+lines: 2232
+estimatedTime: 0.0112945
+-----------------------------------------------------------
+run: RandomAccessFile.readLine() into ArrayList
+lines: 2232
+estimatedTime: 0.3042131
+-----------------------------------------------------------
+run: RandomAccessFile.readLine() into LinkedList
+lines: 2232
+estimatedTime: 0.2725752
+-----------------------------------------------------------
