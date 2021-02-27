@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 public class BufferedReaderExample {
 
     public static void main(String[] args) {
+    	
 
         try (FileInputStream fis = new FileInputStream("data/patrons.ldif");
              InputStreamReader isr = new InputStreamReader(fis);
