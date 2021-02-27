@@ -9,6 +9,7 @@ public class DuplicateBuffers {
 		
 		int[] integerArray = new int[]{10,20,30,40,50};
 		IntBuffer mainIntBuffer = IntBuffer.wrap(integerArray);
+		System.out.println("Order : " + mainIntBuffer.order());
 		
 		IntBuffer secondBuffer = mainIntBuffer.duplicate();
 		IntBuffer thirdBuffer = mainIntBuffer.duplicate();
