@@ -1,9 +1,12 @@
 package ScatterGatherChannels;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
+import java.nio.channels.GatheringByteChannel;
 import java.nio.channels.ScatteringByteChannel;
 
 public class ScatterGatherChannelsExample {
@@ -12,24 +15,42 @@ public class ScatterGatherChannelsExample {
 		
 		ScatteringByteChannel src;
 		
-		FileInputStream fis = new FileInputStream("data/simple.txt");
+		File file = new File("data/patrons.ldif");
+		FileInputStream fis = new FileInputStream(file);
 		src = (ScatteringByteChannel) Channels.newChannel(fis);
-		
-		ByteBuffer byteBuffer1 = ByteBuffer.allocateDirect(5);
-		ByteBuffer byteBuffer2 = ByteBuffer.allocateDirect(3);
+
+		System.out.println("Total size of the file is : " + file.length());
+		ByteBuffer byteBuffer1 = ByteBuffer.allocateDirect(300);
+		ByteBuffer byteBuffer2 = ByteBuffer.allocateDirect(200);
 		
 		ByteBuffer[] byteBuffers = {byteBuffer1, byteBuffer2};
 		src.read(byteBuffers);
-		
-		/**
-		 * Now the file is read into these two buffers namely:
-		 * - buffer1
-		 * - buffer2
-		 */
+
 		byteBuffer1.flip();
 		while (byteBuffer1.hasRemaining()) {
 			System.out.print((char) byteBuffer1.get());
 		}
+		System.out.println();
+
+		byteBuffer2.flip();
+		while (byteBuffer2.hasRemaining()) {
+			System.out.print((char) byteBuffer2.get());
+		}
+		System.out.println();
+
+		byteBuffer1.rewind();
+		byteBuffer2.rewind();
+
+		GatheringByteChannel dest;
+		File outputFile = new File("data/scatter_gather.txt");
+		if (! outputFile.exists()) outputFile.createNewFile();
+
+		FileOutputStream fos = new FileOutputStream(outputFile);
+		dest = (GatheringByteChannel) Channels.newChannel(fos);
+		byteBuffers[0] = byteBuffer1;
+		byteBuffers[1] = byteBuffer2;
+
+		dest.write(byteBuffers);
 		
 	}
 }

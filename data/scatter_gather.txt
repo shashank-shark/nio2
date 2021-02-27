@@ -1,0 +1,25 @@
+dn: dc=inflinx,dc=com
+objectClass: top
+objectClass: domain
+dc: inflinx
+
+dn: ou=patrons,dc=inflinx,dc=com
+objectClass: top
+objectClass: organizationalunit
+ou: patrons
+
+dn: uid=patron0,ou=patrons,dc=inflinx,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalperson
+objectClass: inetorgperson
+givenName: Aaccf
+sn: Amar
+cn: Aaccf Amar
+initials: ARA
+employeeNumber: 0
+uid: patron0
+mail:: cGF0cm9uMEBpbmZsaW54LmNvbSA=
+userPassword: password
+telephoneNumber: +1 688 926 3146
+homePhone: +
