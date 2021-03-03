@@ -11,4 +11,5 @@ public class Attachment {
     public boolean isReadMode;
     public ByteBuffer buffer;
     public SocketAddress clientAddress;
+    public Thread thread;
 }
