@@ -17,6 +17,14 @@ public class AsyncServer {
             System.out.println("Exception caught: " + ioException.getMessage());
         }
 
+        Attachment attachment = new Attachment();
+        attachment.channelServer = channelServer;
+        channelServer.accept(attachment, new ConnectionHandler());
 
+        try {
+            Thread.currentThread().join();
+        } catch (InterruptedException interruptedException) {
+            System.out.println("Interrupt recieved : Server Terminating");
+        }
     }
 }
