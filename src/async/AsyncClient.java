@@ -5,7 +5,6 @@ import com.sun.jmx.snmp.SnmpInt;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.AsynchronousChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
